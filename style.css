@@ -1,0 +1,104 @@
+:root {
+    --first-1: #DFFDFD;
+    --first-3: #77E2E2;
+    --first-4: #4FCCCC;
+    --first-5: #2EADAD;
+    --check-size: 14px;
+}
+*{
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    vertical-align: baseline;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+*{
+    font-size: 16px;
+    font-family: 'Hind Madurai';
+    font-weight: 400;
+    line-height: 1.3em;
+}
+body{
+    background-color: var(--first-1);
+    padding: 0 10px;
+}
+div#all{
+    max-width: 900px;
+    margin: auto
+}
+header, footer, main{
+    background-color: #FFF;
+    border: 1px solid var(--first-3);
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin: 20px 0;
+}
+h2{
+    font-size: 24px;
+    font-weight: 700;
+}
+p{
+    margin: 8px 0;
+}
+label{
+    display: inline-block;
+    margin: 3px;
+    min-width: 200px;
+}
+form input#submit{
+    display: block;
+    background-color: var(--first-5);
+    border: 0;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 8px;
+    color: #FFF;
+}
+
+/*==============================     CUSTUM CHECKBOXES AND RADIO     ==============================*/
+input[type="checkbox"], input[type="radio"]{
+    position: absolute;
+    opacity: 0;
+}
+input[type="checkbox"] label, input[type="radio"] label{
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label::before, input[type="radio"] + label::before{
+    content: "";
+    margin: 0 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: var(--check-size);
+    height: var(--check-size);
+    background: #FFF;
+    border: 2px solid var(--first-5);
+}
+input[type="checkbox"]:hover + label::before, input[type="radio"]:hover + label::before{
+    background: var(--first-5);
+}
+input[type="checkbox"]:focus + label::before, input[type="radio"]:focus + label::before{
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.12);
+}
+input[type="checkbox"]:checked + label::before, input[type="radio"]:checked + label::before{
+    background: var(--first-5);
+    background-image: url(images/checked.png);
+    background-size: var(--check-size);
+}
+
+input[type="radio"] + label::before{
+    border-radius: var(--check-size);
+}
+input[type="radio"]:checked + label::before{
+    background-image: url(images/checked-circle.png);
+}
+
+/*==============================    ANSWERS     ==============================*/
+.answers{
+    margin-bottom: 20px;
+}
+/*ciąg dalszy nastąpi, kiedy będę znać odpowiedzi (żeby różnie je poustawiać w zależności od ich długości)*/
