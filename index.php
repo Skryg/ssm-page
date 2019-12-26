@@ -1,3 +1,14 @@
+<?php
+/*
+$ip = getenv('HTTP_CLIENT_IP')?:
+getenv('HTTP_X_FORWARDED_FOR')?:
+getenv('HTTP_X_FORWARDED')?:
+getenv('HTTP_FORWARDED_FOR')?:
+getenv('HTTP_FORWARDED')?:
+getenv('REMOTE_ADDR');
+echo $ip; */
+require_once 'database.php';
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -17,7 +28,7 @@
     </header>
     <main>
         <form action="" method="POST">
-            <p>Które słowo z tego bardzo znanego zdania uważasz za najważniejsze?</p>
+            <!--<p>Które słowo z tego bardzo znanego zdania uważasz za najważniejsze?</p>
             <div class="answers">
                 <input type="radio" name="slowo" id="lorem" value="lorem"><label for="lorem">Lorem</label>
                 <input type="radio" name="slowo" id="ipsum" value="ipsum"><label for="ipsum">ipsum</label>
@@ -28,7 +39,7 @@
                 <input type="checkbox" name="krol" id="halinka" value="halinka"><label for="halinka">Halina Tyliba</label>
                 <input type="checkbox" name="krol" id="zosia" value="zosia"><label for="zosia">Zofia Mazur</label>
                 <input type="checkbox" name="krol" id="rysio" value="rysio"><label for="rysio">pan Ryszard</label>
-            </div>
+            </div>--><?php DBM::generateQnA(); ?>
             <p>Serdecznie dziękujemy za udział!</p>
             <input type="submit" id="submit" value="Prześlij ankietę">
         </form>
