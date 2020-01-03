@@ -17,6 +17,7 @@ require_once 'database.php';
     <meta name="description" content="Weź udział w ankiecie i zacznij żyć świadomiej!">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ankieta SŚM</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Hind+Madurai:400,700&display=swap&subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
