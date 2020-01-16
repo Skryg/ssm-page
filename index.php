@@ -1,12 +1,4 @@
-<?php
-/*
-$ip = getenv('HTTP_CLIENT_IP')?:
-getenv('HTTP_X_FORWARDED_FOR')?:
-getenv('HTTP_X_FORWARDED')?:
-getenv('HTTP_FORWARDED_FOR')?:
-getenv('HTTP_FORWARDED')?:
-getenv('REMOTE_ADDR');
-echo $ip; */
+<?php if(isset($_COOKIE['completed'])) {header("Location: summary.php"); exit();}
 require_once 'database.php';
 ?>
 <!DOCTYPE html>
@@ -28,7 +20,9 @@ require_once 'database.php';
         <p>Po uzupełnieniu ankiety otrzymasz pewnego rodzaju sprawozdanie, z którego będziesz mógł wyciągnąć wnioski we własnym zakresie. Twoje wyniki będą włącząne do ogólu, z którego będzie przygotowany raport udostępniony na tej stronie. Wtedy formułowaniem wniosków zajmiemy się my 😉.</p>
     </header>
     <main>
-        <form action="" method="POST">
+        <form action="verify.php" method="POST">
+            <input type="hidden" name="posted" value="posted" />
+
             <!--<p>Które słowo z tego bardzo znanego zdania uważasz za najważniejsze?</p>
             <div class="answers">
                 <input type="radio" name="slowo" id="lorem" value="lorem"><label for="lorem">Lorem</label>
