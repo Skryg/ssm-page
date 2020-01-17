@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 26 Gru 2019, 20:00
+-- Czas generowania: 17 Sty 2020, 21:41
 -- Wersja serwera: 10.1.38-MariaDB
 -- Wersja PHP: 7.3.4
 
@@ -21,6 +21,18 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `ssm_qa`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `cdata`
+--
+
+CREATE TABLE `cdata` (
+  `id` int(11) NOT NULL,
+  `ePoints` int(11) NOT NULL,
+  `pPoints` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -50,6 +62,12 @@ INSERT INTO `qa` (`id`, `content`, `type`, `answers`, `ansvalues`, `hidden`) VAL
 --
 
 --
+-- Indeksy dla tabeli `cdata`
+--
+ALTER TABLE `cdata`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeksy dla tabeli `qa`
 --
 ALTER TABLE `qa`
@@ -58,6 +76,12 @@ ALTER TABLE `qa`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT dla tabeli `cdata`
+--
+ALTER TABLE `cdata`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `qa`
