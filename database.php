@@ -3,7 +3,6 @@ class DBase
 {
     private $db = null;
     private $config = null;
-    private $lastrows = 0;
 
     public function __construct()
     {
@@ -21,12 +20,10 @@ class DBase
     public function query($qr){
         try
         {
-            $this->lastrows = 0;
             $stmt = $this->db->query($qr);
             $arr = [];
             while($row = $stmt->fetch(PDO::FETCH_ASSOC))
             {
-                $this->lastrows++;
                 $arr[] = $row;
             }
             $stmt->closeCursor();
@@ -38,31 +35,46 @@ class DBase
             echo "Something went wrong with query!";
         }
     }
-    public function getRows()
+    
+
+    public function insertGetId($e, $p)
     {
-        return $this->lastrows;
+        try
+        {
+            $this->db->beginTransaction();
+            $this->db->query("INSERT INTO cdata (ePoints, pPoints) VALUES ($e,$p)");
+            $id = $this->db->lastInsertId();
+            $this->db->commit();
+            return $id;
+        }
+        catch(PDOException $e)
+        {
+            $this->db->rollBack();
+            echo "Something went wrong with transaction & query!";
+        }
     }
 }
 
 class DBM
 {
-    public static function generateQnA()
+     function generateQnA()
     {
         $db = new DBase;
         $qr = $db->query("SELECT * from `qa`");
-        for($i=0; $i<$db->getRows(); $i++)
+        
+        for($i=0; $i<count($qr); $i++)
         {
             echo '<p>'.$qr[$i]['content'].'</p>';
             echo '<div class="answers">';
             if($qr[$i]['type']==0)
-                $type="radio";
-            else $type="checkbox";
+                {$type="radio"; $xtra="";}
+            else {$type="checkbox"; $xtra="[]";}
 
             $answers = explode('_',$qr[$i]['answers']);
             $values = explode('_',$qr[$i]['ansvalues']);    
             for($j=0; $j < count($answers); $j++)
             {
-                echo '<input type="'.$type.'" name="'.$qr[$i]['id'].'" id="'.$values[$j].$i.'" value="'.$values[$j].'"><label for="'.$values[$j].$i.'">'.$answers[$j].'</label>';
+                echo '<input type="'.$type.'" name="'.$qr[$i]['id'].$xtra.'" id="'.$values[$j].$i.'" value="'.$values[$j].'"><label for="'.$values[$j].$i.'">'.$answers[$j].'</label>';
             }
             echo '</div>';
              
@@ -70,5 +82,6 @@ class DBM
         
         unset($db);
     }
+
 }
 ?>

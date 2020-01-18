@@ -1,4 +1,4 @@
-<?php if(isset($_COOKIE['completed'])) {header("Location: summary.php"); exit();}
+<?php  if(isset($_COOKIE['completed'])) {header("Location: thanks.php"); exit();}
 require_once 'database.php';
 ?>
 <!DOCTYPE html>
