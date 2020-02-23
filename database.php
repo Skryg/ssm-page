@@ -73,6 +73,8 @@ class DBM
             $answers = explode('_',$qr[$i]['answers']);
             $values = explode('_',$qr[$i]['ansvalues']);    
             for($j=0; $j < count($answers); $j++)
+            ## Tutaj trzeba dodać do każdego 'radio' 'required' (index.php już zmieniłem) Chyby wiem jak to zrobić, ale nie chcę namieszać,
+            ## więc zostawię to Tobie. :)
             {
                 echo '<input type="'.$type.'" name="'.$qr[$i]['id'].$xtra.'" id="'.$values[$j].$i.'" value="'.$values[$j].'"><label for="'.$values[$j].$i.'">'.$answers[$j].'</label>';
             }

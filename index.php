@@ -25,9 +25,9 @@ require_once 'database.php';
 
             <!--<p>Które słowo z tego bardzo znanego zdania uważasz za najważniejsze?</p>
             <div class="answers">
-                <input type="radio" name="slowo" id="lorem" value="lorem"><label for="lorem">Lorem</label>
-                <input type="radio" name="slowo" id="ipsum" value="ipsum"><label for="ipsum">ipsum</label>
-                <input type="radio" name="slowo" id="dolor" value="dolor"><label for="dolor">dolor</label>
+                <input type="radio" name="slowo" id="lorem" value="lorem" required><label for="lorem">Lorem</label>
+                <input type="radio" name="slowo" id="ipsum" value="ipsum" required><label for="ipsum">ipsum</label>
+                <input type="radio" name="slowo" id="dolor" value="dolor" required><label for="dolor">dolor</label>
             </div>
             <p>Kto jest królem Nowodworka? (możesz zaznaczyć wszystkich, żeby nikt nie czył się urażony)</p>
             <div class="answers">
