@@ -67,16 +67,14 @@ class DBM
             echo '<p>'.$qr[$i]['content'].'</p>';
             echo '<div class="answers">';
             if($qr[$i]['type']==0)
-                {$type="radio"; $xtra="";}
-            else {$type="checkbox"; $xtra="[]";}
+                {$type="radio"; $xtra=""; $required = "required";}
+            else {$type="checkbox"; $xtra="[]"; $required = "";}
 
             $answers = explode('_',$qr[$i]['answers']);
             $values = explode('_',$qr[$i]['ansvalues']);    
             for($j=0; $j < count($answers); $j++)
-            ## Tutaj trzeba dodać do każdego 'radio' 'required' (index.php już zmieniłem) Chyby wiem jak to zrobić, ale nie chcę namieszać,
-            ## więc zostawię to Tobie. :)
             {
-                echo '<input type="'.$type.'" name="'.$qr[$i]['id'].$xtra.'" id="'.$values[$j].$i.'" value="'.$values[$j].'"><label for="'.$values[$j].$i.'">'.$answers[$j].'</label>';
+                echo '<input type="'.$type.'" name="'.$qr[$i]['id'].$xtra.'" id="'.$i.".".$values[$j].'" value="'.$values[$j].'" '.$required.'><label for="'.$i.".".$values[$j].'">'.$answers[$j].'</label>';
             }
             echo '</div>';
              
