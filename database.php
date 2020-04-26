@@ -37,12 +37,12 @@ class DBase
     }
     
 
-    public function insertGetId($e, $p)
+    public function insertGetId($points)
     {
         try
         {
             $this->db->beginTransaction();
-            $this->db->query("INSERT INTO cdata (ePoints, pPoints) VALUES ($e,$p)");
+            $this->db->query("INSERT INTO cdata (points) VALUES ($points)");
             $id = $this->db->lastInsertId();
             $this->db->commit();
             return $id;
@@ -57,14 +57,14 @@ class DBase
 
 class DBM
 {
-     function generateQnA()
+    public function generateQnA()
     {
         $db = new DBase;
         $qr = $db->query("SELECT * from `qa`");
         
         for($i=0; $i<count($qr); $i++)
         {
-            echo '<p>'.$qr[$i]['content'].'</p>';
+            echo '<div class="quest"><p>'.$qr[$i]['content'].'</p>';
             echo '<div class="answers">';
             if($qr[$i]['type']==0)
                 {$type="radio"; $xtra=""; $required = "required";}
@@ -76,7 +76,7 @@ class DBM
             {
                 echo '<input type="'.$type.'" name="'.$qr[$i]['id'].$xtra.'" id="'.$i.".".$values[$j].'" value="'.$values[$j].'" '.$required.'><label for="'.$i.".".$values[$j].'">'.$answers[$j].'</label>';
             }
-            echo '</div>';
+            echo '</div></div>';
              
         }
         

@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <p>Zdobyłeś/aś <?php echo $pPoints ?> punktów politycznych i <?php echo $ePoints ?> punktów ekonomicznych.<p>
+    <p>Zdobyłeś/aś <?php echo $points[0]['points'] ?> punktów.<p>
     <p>Dziękujemy za wypełnienie ankiety. Dzięki Tobie jeden malutki kotek przeżył.</p>
 
 </body>

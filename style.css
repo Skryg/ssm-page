@@ -99,6 +99,9 @@ input[type="radio"]:checked + label::before{
 
 /*==============================    ANSWERS     ==============================*/
 .answers{
-    margin-bottom: 20px;
+    padding-bottom: 30px; /* Tutaj zmieniłem margin na padding */ 
+}
+.quest{
+    margin: 10px 5px; /* .quest zawiera pytanie i odpowiedzi */
 }
 /*ciąg dalszy nastąpi, kiedy będę znać odpowiedzi (żeby różnie je poustawiać w zależności od ich długości)*/

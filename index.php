@@ -22,19 +22,7 @@ require_once 'database.php';
     <main>
         <form action="verify.php" method="POST">
             <input type="hidden" name="posted" value="posted" />
-
-            <!--<p>Które słowo z tego bardzo znanego zdania uważasz za najważniejsze?</p>
-            <div class="answers">
-                <input type="radio" name="slowo" id="lorem" value="lorem" required><label for="lorem">Lorem</label>
-                <input type="radio" name="slowo" id="ipsum" value="ipsum" required><label for="ipsum">ipsum</label>
-                <input type="radio" name="slowo" id="dolor" value="dolor" required><label for="dolor">dolor</label>
-            </div>
-            <p>Kto jest królem Nowodworka? (możesz zaznaczyć wszystkich, żeby nikt nie czył się urażony)</p>
-            <div class="answers">
-                <input type="checkbox" name="krol" id="halinka" value="halinka"><label for="halinka">Halina Tyliba</label>
-                <input type="checkbox" name="krol" id="zosia" value="zosia"><label for="zosia">Zofia Mazur</label>
-                <input type="checkbox" name="krol" id="rysio" value="rysio"><label for="rysio">pan Ryszard</label>
-            </div>--><?php DBM::generateQnA(); ?>
+            <?php DBM::generateQnA(); ?>
             <p>Serdecznie dziękujemy za udział!</p>
             <input type="submit" id="submit" value="Prześlij ankietę">
         </form>
